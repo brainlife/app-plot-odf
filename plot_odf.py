@@ -35,7 +35,7 @@ def plot_odf_slice(odf_src,lmax,x_slice,y_slice,z_slice,odf_scale,out_png=False)
     size_odf = (600, 600)
 
     ren = window.ren()
-    odf_actor = actor.odf_slicer(data_sf, sphere=sphere, scale=scale_odf, norm=False)
+    odf_actor = actor.odf_slicer(data_sf, sphere=sphere, scale=scale_odf, norm=False,colormap='blues')
     ren.add(odf_actor)
 
     ren.set_camera(
