@@ -3,6 +3,34 @@
 
 # Generate image of ODF
 
+<!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
+
+**Renders PNG images of fibre orientation distribution functions (ODFs) from CSD spherical-harmonic coefficients for a chosen sub-volume, using DIPY visualisation.**
+
+Loads the CSD FOD of the selected lmax, converts the spherical harmonics in the requested x/y/z slice ranges to ODFs on a 724-point sphere and renders them with DIPY/VTK (off-screen) as images for visual quality control. Use it to check that CSD fits look plausible, e.g. crossing fibres in the centrum semiovale; slice ranges must lie within the image.
+
+Run it on brainlife.io: [https://doi.org/10.25663/brainlife.app.317](https://doi.org/10.25663/brainlife.app.317)
+
+| Input | Datatype | Required | Description |
+|---|---|---|---|
+| `csd` | `neuro/csd` | yes | Constrained spherical deconvolution FODs (one file per lmax). |
+
+| Output | Datatype | Description |
+|---|---|---|
+| `images` | `generic/images` | PNG images of the ODFs in the selected sub-volume. |
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `lmax` | number | `8` | Spherical harmonic order of the FOD to plot (selects the lmax<N> file of the csd input). |
+| `odf_scale` | string | `2` | Scale factor for the size of the rendered ODF glyphs. |
+| `x_slice` | string | `121 174` | Start and end voxel indices along x of the region to render (two space-separated integers). |
+| `y_slice` | string | `140 193` | Start and end voxel indices along y of the region to render (two space-separated integers). |
+| `z_slice` | string | `77 78` | Start and end voxel indices along z of the region to render (two space-separated integers). |
+
+Runtime: container `brainlife/pythonvtk:1.2`; 1 CPUs; 0.25 h walltime.
+
+<!-- brainlife-app:end -->
+
 This app will generate images of the fiber orientation distribution function (ODF) using Dipy.
 
 ### Authors
